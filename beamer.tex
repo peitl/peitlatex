@@ -1,0 +1,94 @@
+\usetheme{Boadilla}
+
+\input{latexcolors}
+
+%\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+%\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+%\definecolor{aureolin}{rgb}{0.99, 0.93, 0.0}
+%\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+%\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+%\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+%\definecolor{bananayellow}{rgb}{1.0, 0.88, 0.21}
+%\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+%\definecolor{battleshipgrey}{rgb}{0.52, 0.52, 0.51}
+%\definecolor{buff}{rgb}{0.94, 0.86, 0.51}
+%\definecolor{canaryyellow}{rgb}{1.0, 0.94, 0.0}
+
+\newcommand{\hl}[1]{{\color{ballblue}#1}}
+\newcommand{\hld}[1]{{\color{aureolin}#1}}
+\newcommand{\hll}[1]{{\color{canaryyellow}#1}}
+\newcommand{\hlx}[1]{{\color{airforceblue}#1}}
+
+
+% define the colors from latexcolors.com
+%\setbeamercolor{frametitle}{fg=white} % make frame title white
+%\setbeamercolor{date in head/foot}{fg=white,bg=Blue} % make date in footer white
+\setbeamercolor{sectiontitle}{fg=white,bg=airforceblue}
+%\setbeamercolor{frametitle}{fg=airforceblue, bg=black}
+\setbeamercolor{frametitle}{fg=white, bg=airforceblue}
+\setbeamercolor{section in head/foot}{fg=white, bg=airforceblue}
+\setbeamercolor{author in head/foot}{fg=white, bg=airforceblue}
+\setbeamercolor{title in head/foot}{fg=white, bg=ballblue}
+\setbeamercolor{block title}{fg=white, bg=airforceblue}
+\setbeamercolor{block title example}{fg=white, bg=ballblue}
+\setbeamercolor{item}{fg=airforceblue}
+\setbeamercolor{section in toc}{fg=airforceblue}
+\setbeamercolor{subsection in toc}{fg=airforceblue}
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+	\begin{center}
+		\vspace{-4em}
+		\usebeamerfont{title}
+		  \begin{beamercolorbox}[wd=\paperwidth,ht=2em,dp=1.1em,center]{author in head/foot}%
+			  \usebeamerfont{title}{\color{white}\LARGE\bf \inserttitle}
+		  \end{beamercolorbox}%
+		%\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+		\bigskip
+		\bigskip
+		\usebeamerfont{author}{\Large\insertauthor} \\[1em]
+		\includegraphics[height=0.3\textheight]{tomas_circled} \\[1em]
+		\usebeamerfont{title}\insertdate\par
+		%\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+	\end{center}
+}
+
+% typeset the footline to contain author names, title, and page numbers
+%\renewcommand{\arraystretch}{1.5}
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}%
+	\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+
+% turn off navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\titleframe}[1]{
+	\begin{frame}
+		\vfill
+		\begin{center}
+		~
+		\begin{beamercolorbox}[wd=0.9\textwidth,sep=8pt,center,shadow=true,rounded=true]{sectiontitle}
+			\usebeamerfont{title}#1\par%
+		\end{beamercolorbox}
+		~
+		\end{center}
+		\vfill
+	\end{frame}
+}
+
+% add a title frame at the start of each section with the section name
+\AtBeginSection[]{
+	\titleframe{\insertsection}
+}
